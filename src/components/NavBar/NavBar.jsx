@@ -1,5 +1,5 @@
 import CartWidget from "../cartWidget/CartWidget";
-import "./navbar.css";
+import "./navbar.css"
 import { FaCartArrowDown } from "react-icons/fa";
 
 export const Navbar = () => {

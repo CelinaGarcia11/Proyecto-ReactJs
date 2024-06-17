@@ -1,5 +1,6 @@
-import './App_fondo.css'
+
 import ItemListConteiner from './pages/itemListContainer/ItemListConteiner'
+import Navbar from './components/NavBar/NavBar'
 function App() {
  
   return <div>
