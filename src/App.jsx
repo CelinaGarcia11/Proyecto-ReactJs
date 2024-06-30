@@ -1,12 +1,13 @@
 
 import ItemListConteiner from './pages/itemListContainer/ItemListConteiner'
 import Navbar from './components/NavBar/NavBar'
+
 function App() {
  
   return <div>
     <Navbar />
 
-    <ItemListConteiner greeting={"¿Hola comos estas?"}/>
+    <ItemListConteiner greeting={"¿Hola como estas?"}/>
   </div>
 } 
 

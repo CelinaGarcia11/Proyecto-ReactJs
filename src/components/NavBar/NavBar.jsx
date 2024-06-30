@@ -5,7 +5,13 @@ import { FaCartArrowDown } from "react-icons/fa";
 export const Navbar = () => {
     return (
         <div className="navbarCointeiner">
-            <h2>Logo</h2>
+            <img src="https://res.cloudinary.com/dgev4isnh/image/upload/v1719781143/logo_e_odd9bu.png" alt="Logo"
+            style={{
+                width:"100px",
+                height:"100px",
+                objectFit: "cover"
+            }}
+            />
 
 
             <ul>

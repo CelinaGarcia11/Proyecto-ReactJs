@@ -1,14 +1,21 @@
 .navbarCointeiner {
-    background-color: peru;
+    background-color: palevioletred;
     display: flex;
     width: 100%;
     justify-content: space-between;
     min-height: 10vh;
     align-items: center;
+    padding-right: 5%;
+    padding-left: 5%;
 }
 
 li{
     list-style: none;
 }
 
-ul{gap: 20px;}
+ul{
+    display: flex;
+    gap: 100px;
+    justify-content: space-between;
+}
+
