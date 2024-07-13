@@ -1,5 +1,22 @@
-export const Footer = () => {
+import "./footer.css";
+
+const Footer =  () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <>
+    <div 
+    style={{
+      width: "100%",
+      backgroundColor: "palevioletred",
+    }}
+    >
+      <ul>
+        <li>Instagram</li>
+        <li>X</li>
+        <li>Facebook</li>
+      </ul>
+    </div>
+    </>
+  );
+};
+
+export default Footer;

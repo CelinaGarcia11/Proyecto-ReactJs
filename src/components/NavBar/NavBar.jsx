@@ -1,31 +1,29 @@
 import CartWidget from "../cartWidget/CartWidget";
 import "./navbar.css"
-import { FaCartArrowDown } from "react-icons/fa";
-
+import { Link } from "react-router-dom"
 export const Navbar = () => {
     return (
-        <div className="navbarCointeiner">
-            <img src="https://res.cloudinary.com/dgev4isnh/image/upload/v1719781143/logo_e_odd9bu.png" alt="Logo"
-            style={{
-                width:"100px",
-                height:"100px",
-                objectFit: "cover"
-            }}
-            />
+        <div>
+            <> 
+            <div className="navbarCointeiner">
+               <Link to="/">
+               <img style={{width:"100px"}} src="https://res.cloudinary.com/dgev4isnh/image/upload/v1719781143/logo_e_odd9bu.png" alt="Logo" />
+               </Link>
 
-
-            <ul>
-                <li>Todas</li>
-                <li>Abrigo</li>
-                <li>Fiesta</li>
-                <li>Clasica</li>
-                <li>Calzado</li>
-            </ul>
+             <ul ClassName="categories">
+                <Link to="/">Todas</Link>
+                <Link to="/category/abrigo">Abrigo</Link>
+                <Link to="/category/fiesta">Fiesta</Link>
+                <Link to="/category/clasica">Clasica</Link>
+                <Link to="/category/calzado">Calzado</Link>
+                </ul>
 
             <CartWidget />
             
         </div> 
-    )     
-}
+       </>
+        </div>  
+    );    
+};
 
 export default Navbar
