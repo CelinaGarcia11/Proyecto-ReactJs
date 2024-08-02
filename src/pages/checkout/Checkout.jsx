@@ -54,9 +54,9 @@ const Checkout = () => {
         </select>
 
         <label>casa</label>
-        <input type="radio" name="entidad" onChange={handleRadio} value="casa" />
+        <input type="radio" name="entidad" onChange={handleRadio} value="" />
         <label>avion</label>
-        <input type="radio" name="entidad" onChange={handleRadio} value="avion" />
+        <input type="radio" name="entidad" onChange={handleRadio} value="" />
 
         <button>enviar</button>
         <button type="button">cancelar</button>
