@@ -1,6 +1,6 @@
 export let products = [
     {
-        id: 1 ,
+        
         title: "Zapatillas Converse Ecocuero Negras",
         price: 25000,
         description: "zapatillas negras ecocuero con plataforma",
@@ -9,7 +9,7 @@ export let products = [
         category: "calzado",
     },
     {
-        id: 2,
+      
         title: "Borcegos Negros",
         price: 50000,
         description: "Borcegos negros",
@@ -18,7 +18,7 @@ export let products = [
         category: "calzado",
     },
     {
-        id: 3,
+       
         title: "Vestido Microtul Negro",
         price: 15000,
         description: "Vestido corto negro de microtul manga larga ",
@@ -27,7 +27,7 @@ export let products = [
         category: "fiesta",
     },
     {
-        id: 4,
+       
         title: "Campera Puffer Ecocuero Negra",
         price: 45000,
         description: "Campera puffer ecocuero negra",

@@ -2,8 +2,6 @@ import { useState } from "react"
 
 const Checkout = () => {
   const [user, setUser] = useState({ nombre: "", email: "", telefono: "" });
-  
-  const [obj, setObj] = useState("")
 
   const envioDeFormulario = (event) => {
     event.preventDefault();
@@ -11,16 +9,7 @@ const Checkout = () => {
   };
 
   const capturarData = (event) => {
-    let { name, value} = event.target;
-    setUser({ ...user, [name]: value });
-  };
-
-  const handleSelect = (e) => {
-    console.log(e.target.value);
-  };
-
-  const handleRadio = (e) => {
-    console.log(e.target.value);
+    setUser({ ...user, [event.target.name]: event.target.value });
   };
 
   return (
@@ -47,19 +36,7 @@ const Checkout = () => {
          onChange={capturarData}
         />
 
-        <select onChange={handleSelect} >
-          <option label="uno" value={"one"} />
-          <option label="dos" value={"two"} />
-          <option label="tres" value={15} />
-        </select>
-
-        <label>casa</label>
-        <input type="radio" name="entidad" onChange={handleRadio} value="" />
-        <label>avion</label>
-        <input type="radio" name="entidad" onChange={handleRadio} value="" />
-
         <button>enviar</button>
-        <button type="button">cancelar</button>
       </form>
 
       

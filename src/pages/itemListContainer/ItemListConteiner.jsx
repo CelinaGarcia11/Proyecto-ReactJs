@@ -1,10 +1,17 @@
 import ItemList from "../ItemList";
-import { products } from "../../products";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {BeatLoader} from "react-spinners";
 import { db } from "../../firebaseConfig";
-import {collection, getDocs, query, where } from "firebase/firestore"
+import {collection, getDocs, query, where, } from "firebase/firestore"
+
+
+
+
+
+
+
+
 
 const ItemListConteiner = () => {
 const { name } = useParams(); 
@@ -45,8 +52,22 @@ if( items.length === 0 ) {
   ); 
 }
 
-  return <ItemList  items={items}/>;
-    
+// const addProducts = ()=>{
+//  let productsCollection = collection( db, "products");
+//   products.forEach( elemento => {
+//     addDoc( productsCollection, elemento )
+//   })
+// };
+
+  return (
+  <div> 
+    {/* { <Button variant="contained" onClick={addProducts}>
+      Agregar productos
+      </Button> } */}
+    <ItemList  items={items}/>
+    {}
+    </div>
+  ); 
 };
 
 export default ItemListConteiner

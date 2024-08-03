@@ -2,6 +2,9 @@ import { Password } from '@mui/icons-material';
 import { Button,TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from "yup"
+
+
+
  
 
 const CheckoutFormik = () => {
@@ -21,10 +24,15 @@ const CheckoutFormik = () => {
             direccion: Yup.string().required("este campo es requerido").min(5, "ingrese al menos 5 caracteres"),
         }),
         validateOnChange: false,
+
+       
     });
 
     console.log(errors);
     console.log(errors.nombre);
+
+
+    
 
   return (
      <form 
