@@ -1,39 +1,36 @@
-import ItemList from "../ItemList" 
-import { products } from "../../products"
+import ItemList from "../ItemList";
+import { products } from "../../products";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {BeatLoader} from "react-spinners"
-
+import {BeatLoader} from "react-spinners";
+import { db } from "../../firebaseConfig";
+import {collection, getDocs, query, where } from "firebase/firestore"
 
 const ItemListConteiner = () => {
- const [items, setItems] = useState([])
- const [error, setError] = useState({});
- const { name } = useParams();
+const { name } = useParams(); 
+const [items, setItems] = useState([]);
+ 
 
 useEffect(() => {
-  const getProducts = new Promise((resolve, reject) => {
-    let x = true;
-    let arrayFiltered = products.filter(
-       (product) => product.category === name)
-  if (x) {
-    setTimeout(()=> {
-       resolve(name ? arrayFiltered : products);
-    }, 2000)
-   
-  } else {
-    reject ({ message: "error", codigo: "484"});
+  let productsCollection = collection(db, "products");
+
+  let consulta = productsCollection;
+  if(name){
+    consulta = query(productsCollection, where("category", "==", name));
   }
-});
 
+  let getProducts = getDocs(consulta);
+  getProducts.then((res) => {
+    let arrayValido = res.docs.map((product) => {
+      return { ...product.data(), id: product.id };
+     }); 
+      setItems(arrayValido);
+    });
 
-getProducts
-  .then((res) => {
-    setItems( res )
-  })
-  .catch((error) => {
-    setError(error)
-  });
 } , [name]);
+
+
+
 if( items.length === 0 ) {
   return (
     <div 
