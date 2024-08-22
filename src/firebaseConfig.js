@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB8RyNyvGXF3kzp1NOW8dG6YvY0RW8AC5U",
-  authDomain: "olivia-indumentaria-ecommerce.firebaseapp.com",
-  projectId: "olivia-indumentaria-ecommerce",
-  storageBucket: "olivia-indumentaria-ecommerce.appspot.com",
-  messagingSenderId: "410994576895",
-  appId: "1:410994576895:web:b01caa3ea97fba61ecabca"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain:import.meta.env.VITE_AUTH,
+  projectId: import.meta.env.VITE_PROJECT,
+  storageBucket: import.meta.env.VITE_STORAGE,
+  messagingSenderId: import.meta.env.VITE_MESSAGING,
+  appId: import.meta.env.VITE_APPID,
 };
 
 const app = initializeApp(firebaseConfig);

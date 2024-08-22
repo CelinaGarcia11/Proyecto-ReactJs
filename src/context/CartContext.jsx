@@ -25,7 +25,7 @@ const CartContextProvider = ({ children }) => {
     };
 
     const clearCart = () => {
-        setCart({});
+        setCart([]);
     };
 
     const isInCart = ( id ) => {

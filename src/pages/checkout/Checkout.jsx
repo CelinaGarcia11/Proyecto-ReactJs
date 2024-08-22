@@ -1,19 +1,16 @@
-import { useContext, useState } from "react"
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Checkout = () => {
-
   const navigate = useNavigate();
-  
-  
 
   const [user, setUser] = useState({ nombre: "", email: "", telefono: "" });
-  const {cart, getTotalPrice, clearCart } = useContext(CartContext)
-  const [orderId, setOrderId] = useState("")
+  const { cart, getTotalPrice, clearCart } = useContext(CartContext);
+  const [orderId, setOrderId] = useState("");
 
   let total = getTotalPrice();
 
@@ -28,21 +25,21 @@ const Checkout = () => {
     let ordersCollection = collection(db, "orders");
     let productCollection = collection(db, "products");
 
-    cart.forEach( elemento => {
-      let refDoc = doc(productCollection, elemento.id )
-      updateDoc(refDoc, {stock: elemento.stock - elemento.quantity});
+    cart.forEach((elemento) => {
+      let refDoc = doc(productCollection, elemento.id);
+      updateDoc(refDoc, { stock: elemento.stock - elemento.quantity });
     });
-    
+
     addDoc(ordersCollection, order)
-    .then((res) => {
-       setOrderId(res.id);
-      toast.success(`Gracias por tu compra , tu ticket es ${res.id} `);
-  })
-    .catch()
-    .finally(() => {
-      clearCart(); 
-      navigate("/");
-    });
+      .then((res) => {
+        setOrderId(res.id);
+        toast.success(`Gracias por tu compra , tu ticket es ${res.id} `);
+      })
+      .catch()
+      .finally(() => {
+        clearCart();
+        navigate("/");
+      });
   };
 
   const capturarData = (event) => {
@@ -51,33 +48,33 @@ const Checkout = () => {
 
   return (
     <div>
-        <h1>Aca va el formulario</h1>
-        { orderId ? <h2>Gracias por tu compra, tu ticket de compra es : {orderId} </h2> : 
-        
+      <h1>Aca va el formulario</h1>
+      {orderId ? (
+        <h2>Gracias por tu compra, tu ticket de compra es : {orderId} </h2>
+      ) : (
         <form onSubmit={envioDeFormulario}>
-          <input 
-          type="text"
-          placeholder="Ingresa tu nombre"
-          onChange={capturarData}
-          name="nombre"
-        />
-        <input
-         type="text"
-         placeholder="Ingresa tu email"
-         name="email"
-         onChange={capturarData}
-        />
-        <input
-         type="text"
-         placeholder="Ingresa tu telefono"
-         name="telefono"
-         onChange={capturarData}
-        />
+          <input
+            type="text"
+            placeholder="Ingresa tu nombre"
+            onChange={capturarData}
+            name="nombre"
+          />
+          <input
+            type="text"
+            placeholder="Ingresa tu email"
+            name="email"
+            onChange={capturarData}
+          />
+          <input
+            type="text"
+            placeholder="Ingresa tu telefono"
+            name="telefono"
+            onChange={capturarData}
+          />
 
-        <button>enviar</button>
-      </form>}
-
-      
+          <button>enviar</button>
+        </form>
+      )}
     </div>
   );
 };
